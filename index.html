@@ -1,0 +1,3403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habibi Store - Panel WhatsApp & Marketplace Lengkap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d3e50;
+            --secondary: #1abc9c;
+            --accent: #e74c3c;
+            --dark: #1a252f;
+            --light: #f8f9fa;
+            --gold: #f1c40f;
+            --purple: #9b59b6;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, #1abc9c 0%, #3498db 100%);
+            --gradient-dark: linear-gradient(135deg, #2d3e50 0%, #1a252f 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--dark);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            padding: 15px 0;
+            transition: all 0.4s ease;
+        }
+
+        .header-scrolled {
+            padding: 10px 0;
+            background: rgba(26, 37, 47, 0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+            font-size: 2.2rem;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-icon {
+            position: relative;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .cart-icon:hover {
+            color: var(--secondary);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sales-icon {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .sales-icon:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .search-box {
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .search-box input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 15px 10px 40px;
+            border-radius: 50px;
+            width: 200px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 250px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--secondary);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Slider */
+        .hero-slider {
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 600px;
+        }
+
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .slide-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(26, 37, 47, 0.8), rgba(26, 37, 47, 0.6));
+            z-index: 1;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.5rem;
+        }
+
+        .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.5;
+            width: 12px;
+            height: 12px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--secondary);
+            opacity: 1;
+        }
+
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .cart-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-header {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-cart:hover {
+            color: var(--accent);
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .cart-item-remove:hover {
+            color: var(--accent);
+        }
+
+        .cart-footer {
+            padding: 25px;
+            border-top: 1px solid #eee;
+            background: white;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .cart-total span:last-child {
+            color: var(--accent);
+        }
+
+        .cart-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .cart-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-clear {
+            background: #f8f9fa;
+            color: #666;
+        }
+
+        .btn-clear:hover {
+            background: #e9ecef;
+        }
+
+        .btn-checkout {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-checkout:hover {
+            background: #16a085;
+        }
+
+        /* Sales Modal */
+        .sales-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            background: white;
+            border-radius: 15px;
+            z-index: 2002;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sales-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .sales-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .sales-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sales-header {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sales-header h3 {
+            font-size: 1.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-sales {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-sales:hover {
+            color: var(--accent);
+        }
+
+        .sales-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            padding: 0 25px;
+        }
+
+        .sales-tab {
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .sales-tab.active {
+            color: var(--secondary);
+        }
+
+        .sales-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .sales-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+        }
+
+        .sales-tab-content {
+            display: none;
+        }
+
+        .sales-tab-content.active {
+            display: block;
+        }
+
+        .sales-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .sales-table th {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark);
+            border-bottom: 2px solid #eee;
+        }
+
+        .sales-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sales-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status {
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .sales-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-card h4 {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .summary-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .summary-card .value.green {
+            color: var(--secondary);
+        }
+
+        .summary-card .value.red {
+            color: var(--accent);
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            margin-top: -1px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            color: #bbb;
+            font-size: 1rem;
+        }
+
+        /* Category Slider */
+        .category-slider {
+            padding: 80px 0;
+            background: var(--light);
+        }
+
+        .category-container {
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .category-slider .swiper-slide {
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .category-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .category-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .category-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .category-count {
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .service-features li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .service-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background: var(--secondary);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-buy:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
+
+        .btn-cart {
+            width: 45px;
+            background: #f8f9fa;
+            color: var(--dark);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .btn-cart:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* Pricing Tables */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            border: 3px solid var(--secondary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-header h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            background: var(--gradient-dark);
+            color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 60px 0;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .admin-header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h3 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .admin-header h3 i {
+            margin-right: 15px;
+            color: var(--secondary);
+        }
+
+        .admin-status {
+            background: var(--secondary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .admin-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .admin-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .admin-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .admin-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+        }
+
+        .admin-card h4 i {
+            margin-right: 10px;
+        }
+
+        .admin-card p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .admin-contact {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .admin-contact i {
+            color: var(--secondary);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        /* Search Results */
+        .search-results {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .results-count {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .clear-search {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            color: #666;
+            padding: 8px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .clear-search:hover {
+            background: #eee;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .result-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .result-item h4 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .result-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .result-price {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .contact-icon {
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .contact-text a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-text a:hover {
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .swiper {
+                height: 500px;
+            }
+            
+            .slide-content h1 {
+                font-size: 3rem;
+            }
+            
+            .cart-modal {
+                width: 400px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--dark);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.5s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .nav-right {
+                margin-left: auto;
+            }
+            
+            .search-box input {
+                width: 150px;
+            }
+            
+            .search-box input:focus {
+                width: 180px;
+            }
+            
+            .sales-icon span {
+                display: none;
+            }
+            
+            .sales-icon {
+                padding: 8px;
+            }
+            
+            .mobile-toggle {
+                display: block;
+                margin-left: 15px;
+            }
+            
+            .swiper {
+                height: 450px;
+            }
+            
+            .slide-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: scale(1) translateY(-10px);
+            }
+            
+            .cart-modal {
+                width: 350px;
+            }
+            
+            .sales-modal {
+                width: 95%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                margin-top: 70px;
+            }
+            
+            .swiper {
+                height: 400px;
+            }
+            
+            .slide-content h1 {
+                font-size: 2rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 70px 0;
+            }
+            
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .admin-status {
+                margin-top: 15px;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cart-modal {
+                width: 100%;
+                right: -100%;
+            }
+            
+            .sales-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .search-box {
+                display: none;
+            }
+            
+            .swiper {
+                height: 350px;
+            }
+            
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-container {
+                padding: 0 20px;
+            }
+            
+            .services-grid, .pricing-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sales-tabs {
+                overflow-x: auto;
+                padding: 0 15px;
+            }
+            
+            .sales-tab {
+                padding: 15px;
+                white-space: nowrap;
+            }
+            
+            .sales-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #16a085;
+        }
+
+        /* Floating Button */
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(26, 188, 156, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .floating-button:hover {
+            background: #16a085;
+            transform: scale(1.1);
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--dark);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 998;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-store"></i>
+                    HABIBI<span>STORE</span>
+                </a>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#categories">Kategori</a></li>
+                    <li><a href="#panel">Panel</a></li>
+                    <li><a href="#bot">Bot WhatsApp</a></li>
+                    <li><a href="#jpm">JPM</a></li>
+                    <li><a href="#sosmed">Sosial Media</a></li>
+                    <li><a href="#admin">Admin</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+                
+                <div class="nav-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Cari layanan...">
+                    </div>
+                    
+                    <a href="javascript:void(0)" id="cartIcon" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    
+                    <a href="javascript:void(0)" id="salesIcon" class="sales-icon">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Penjualan</span>
+                    </a>
+                    
+                    <button class="mobile-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart" style="text-align: center; padding: 40px 20px; color: #999;">
+                <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                <h4>Keranjang belanja kosong</h4>
+                <p>Tambahkan layanan ke keranjang untuk memulai</p>
+            </div>
+        </div>
+        
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">Rp 0</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-clear" id="clearCart">Kosongkan</button>
+                <button class="btn-checkout" id="checkoutCart">Checkout via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sales Modal -->
+    <div class="sales-overlay" id="salesOverlay"></div>
+    <div class="sales-modal" id="salesModal">
+        <div class="sales-header">
+        <h3><i class="fas fa-chart-line"></i> Daftar Penjualan & Riwayat</h3>
+            <button class="close-sales" id="closeSales">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="sales-tabs">
+            <button class="sales-tab active" data-tab="summary">Ringkasan</button>
+            <button class="sales-tab" data-tab="transactions">Transaksi</button>
+            <button class="sales-tab" data-tab="products">Produk Terlaris</button>
+            <button class="sales-tab" data-tab="stats">Statistik</button>
+        </div>
+        
+        <div class="sales-content">
+            <!-- Summary Tab -->
+            <div class="sales-tab-content active" id="summaryTab">
+                <div class="sales-summary">
+                    <div class="summary-card">
+                        <h4>Total Pendapatan</h4>
+                        <div class="value green">Rp 8.450.000</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total Transaksi</h4>
+                        <div class="value">1.247</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Produk Terjual</h4>
+                        <div class="value">3.892</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Pelanggan Aktif</h4>
+                        <div class="value">847</div>
+                    </div>
+                </div>
+                
+                <h4 style="margin-bottom: 15px;">Penjualan Bulan Ini</h4>
+                <div class="sales-summary">
+                    <div class="summary-card">
+                        <h4>Panel WhatsApp</h4>
+                        <div class="value green">Rp 3.250.000</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Sewa Bot</h4>
+                        <div class="value green">Rp 2.180.000</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Jasa Sosmed</h4>
+                        <div class="value green">Rp 1.870.000</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>JPM & Lainnya</h4>
+                        <div class="value green">Rp 1.150.000</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Transactions Tab -->
+            <div class="sales-tab-content" id="transactionsTab">
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th>ID Transaksi</th>
+                            <th>Produk/Layanan</th>
+                            <th>Pelanggan</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TRX-2024-001</td>
+                            <td>Panel RAM 5GB</td>
+                            <td>Andi Wijaya</td>
+                            <td>15 Mar 2024</td>
+                            <td><span class="status status-completed">Selesai</span></td>
+                            <td>Rp 5.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-002</td>
+                            <td>Bot Jaga Grup 1 Bulan</td>
+                            <td>Sari Dewi</td>
+                            <td>14 Mar 2024</td>
+                            <td><span class="status status-completed">Selesai</span></td>
+                            <td>Rp 20.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-003</td>
+                            <td>TikTok 1000 Followers</td>
+                            <td>Rudi Hartono</td>
+                            <td>13 Mar 2024</td>
+                            <td><span class="status status-processing">Diproses</span></td>
+                            <td>Rp 25.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-004</td>
+                            <td>JPM Premium 100 Member</td>
+                            <td>Budi Santoso</td>
+                            <td>12 Mar 2024</td>
+                            <td><span class="status status-completed">Selesai</span></td>
+                            <td>Rp 45.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-005</td>
+                            <td>Script Jaga Grup</td>
+                            <td>Lisa Anggraini</td>
+                            <td>11 Mar 2024</td>
+                            <td><span class="status status-pending">Pending</span></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-006</td>
+                            <td>NOKOS USA +1</td>
+                            <td>Doni Prasetyo</td>
+                            <td>10 Mar 2024</td>
+                            <td><span class="status status-completed">Selesai</span></td>
+                            <td>Rp 25.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-007</td>
+                            <td>Instagram 1000 Like</td>
+                            <td>Maya Indah</td>
+                            <td>9 Mar 2024</td>
+                            <td><span class="status status-completed">Selesai</span></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                        <tr>
+                            <td>TRX-2024-008</td>
+                            <td>Reseller Panel</td>
+                            <td>Joko Susilo</td>
+                            <td>8 Mar 2024</td>
+                            <td><span class="status status-processing">Diproses</span></td>
+                            <td>Rp 15.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Products Tab -->
+            <div class="sales-tab-content" id="productsTab">
+                <h4 style="margin-bottom: 20px;">10 Produk Terlaris</h4>
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th>Peringkat</th>
+                            <th>Produk/Layanan</th>
+                            <th>Kategori</th>
+                            <th>Terjual</th>
+                            <th>Pendapatan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Panel RAM 5GB</td>
+                            <td>Panel WhatsApp</td>
+                            <td>387</td>
+                            <td>Rp 1.935.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Bot Jaga Grup 1 Bulan</td>
+                            <td>Sewa Bot</td>
+                            <td>254</td>
+                            <td>Rp 5.080.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>TikTok 1000 Followers</td>
+                            <td>Jasa Sosmed</td>
+                            <td>189</td>
+                            <td>Rp 4.725.000</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>JPM Reguler 100 Member</td>
+                            <td>Jasa Push Member</td>
+                            <td>167</td>
+                            <td>Rp 5.845.000</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Instagram 1000 Like</td>
+                            <td>Jasa Sosmed</td>
+                            <td>145</td>
+                            <td>Rp 2.175.000</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>NOKOS Indonesia +62</td>
+                            <td>NOKOS WhatsApp</td>
+                            <td>132</td>
+                            <td>Rp 924.000</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Script Jaga Grup</td>
+                            <td>Script Bot</td>
+                            <td>98</td>
+                            <td>Rp 1.470.000</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>WhatsApp Channel 500 Followers</td>
+                            <td>Jasa Sosmed</td>
+                            <td>87</td>
+                            <td>Rp 2.175.000</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Panel Unlimited</td>
+                            <td>Panel WhatsApp</td>
+                            <td>76</td>
+                            <td>Rp 912.000</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Bot Pushkontak 1 Bulan</td>
+                            <td>Sewa Bot</td>
+                            <td>65</td>
+                            <td>Rp 1.300.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Stats Tab -->
+            <div class="sales-tab-content" id="statsTab">
+                <div class="sales-summary">
+                    <div class="summary-card">
+                        <h4>Rata-rata Transaksi</h4>
+                        <div class="value">Rp 6.775</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Konversi Penjualan</h4>
+                        <div class="value green">24.7%</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Retensi Pelanggan</h4>
+                        <div class="value green">68.3%</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Rating Kepuasan</hh4>
+                        <div class="value green">4.8/5</div>
+                    </div>
+                </div>
+                
+                <h4 style="margin-bottom: 15px; margin-top: 30px;">Statistik Bulanan</h4>
+                <table class="sales-table">
+                    <thead>
+                        <tr>
+                            <th>Bulan</th>
+                            <th>Transaksi</th>
+                            <th>Pendapatan</th>
+                            <th>Pelanggan Baru</th>
+                            <th>Growth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mar 2024</td>
+                            <td>247</td>
+                            <td>Rp 1.850.000</td>
+                            <td>89</td>
+                            <td class="green">+12.4%</td>
+                        </tr>
+                        <tr>
+                            <td>Feb 2024</td>
+                            <td>220</td>
+                            <td>Rp 1.645.000</td>
+                            <td>76</td>
+                            <td class="green">+8.7%</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 2024</td>
+                            <td>203</td>
+                            <td>Rp 1.512.000</td>
+                            <td>68</td>
+                            <td class="green">+15.2%</td>
+                        </tr>
+                        <tr>
+                            <td>Des 2023</td>
+                            <td>176</td>
+                            <td>Rp 1.312.000</td>
+                            <td>59</td>
+                            <td class="green">+5.9%</td>
+                        </tr>
+                        <tr>
+                            <td>Nov 2023</td>
+                            <td>166</td>
+                            <td>Rp 1.238.000</td>
+                            <td>54</td>
+                            <td class="green">+9.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Okt 2023</td>
+                            <td>151</td>
+                            <td>Rp 1.127.000</td>
+                            <td>49</td>
+                            <td class="green">+7.2%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="home">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Panel WhatsApp Terlengkap</h1>
+                        <p>Panel hosting bot WhatsApp dengan spesifikasi RAM berbeda-beda. Server online 24 jam, anti delete, anti maling script, tidak boros kuota, dan anti DDOS.</p>
+                        <a href="#panel" class="btn-buy" style="display: inline-block; width: auto; padding: 12px 30px;">Lihat Panel</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Bot WhatsApp Premium</h1>
+                        <p>Sewa bot WhatsApp untuk berbagai keperluan: jaga grup, pushkontak, JPM, dengan harga terjangkau dan fitur lengkap.</p>
+                        <a href="#bot" class="btn-buy" style="display: inline-block; width: auto; padding: 12px 30px;">Sewa Bot</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1611605698323-b1e99cfd37ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+                    <div class="slide-overlay"></div>
+                    <div class="slide-content">
+                        <h1>Jasa Sosial Media</h1>
+                        <p>Tingkatkan engagement akun sosial media Anda dengan layanan like, views, dan followers berkualitas untuk TikTok, Instagram, dan WhatsApp Channel.</p>
+                        <a href="#sosmed" class="btn-buy" style="display: inline-block; width: auto; padding: 12px 30px;">Lihat Layanan</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <i class="fas fa-server"></i>
+                    <h3>500+</h3>
+                    <p>Panel Terjual</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>1200+</h3>
+                    <p>Bot Disewa</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3>3000+</h3>
+                    <p>Pelanggan</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>99%</h3>
+                    <p>Kepuasan Pelanggan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Slider -->
+    <section class="category-slider" id="categories">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>Kategori Layanan</h2>
+                <p>Pilih kategori layanan yang Anda butuhkan</p>
+            </div>
+            
+            <div class="category-container">
+                <div class="swiper categorySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-server"></i>
+                                </div>
+                                <h3>Panel WhatsApp</h3>
+                                <p>Hosting panel bot WhatsApp dengan berbagai spesifikasi RAM</p>
+                                <div class="category-count">12 Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <h3>Sewa Bot</h3>
+                                <p>Sewa bot WhatsApp untuk jaga grup, pushkontak, dan JPM</p>
+                                <div class="category-count">9 Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3>Script Bot</h3>
+                                <p>Script bot WhatsApp siap pakai dengan fitur lengkap</p>
+                                <div class="category-count">4 Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <h3>NOKOS WhatsApp</h3>
+                                <p>Nomor kosong WhatsApp berbagai negara</p>
+                                <div class="category-count">6 Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fab fa-tiktok"></i>
+                                </div>
+                                <h3>Jasa Sosmed</h3>
+                                <p>Like, views, followers untuk TikTok, Instagram, WhatsApp</p>
+                                <div class="category-count">30+ Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <h3>Jasa Push Member</h3>
+                                <p>Jasa tambah member grup WhatsApp reguler & premium</p>
+                                <div class="category-count">14 Layanan</div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="category-card">
+                                <div class="category-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>Layanan Lainnya</h3>
+                                <p>VPS, install panel, setting cPanel, rename script, dll</p>
+                                <div class="category-count">10+ Layanan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next category-next"></div>
+                <div class="swiper-button-prev category-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <div class="container">
+        <div class="search-results" id="searchResults">
+            <div class="results-header">
+                <div class="results-count">Hasil pencarian: <span id="resultCount">0</span> ditemukan</div>
+                <button class="clear-search" id="clearSearch">Clear Pencarian</button>
+            </div>
+            <div class="results-grid" id="resultsGrid">
+                <!-- Hasil pencarian akan muncul di sini -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Panel WhatsApp Section -->
+    <section id="panel" class="services-section">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>💻 Panel Private WhatsApp</h2>
+                <p>Panel hosting bot WhatsApp dengan spesifikasi RAM berbeda-beda. Server online 24 jam, anti delete, anti maling script, tidak boros kuota, dan anti DDOS.</p>
+            </div>
+            
+            <div class="pricing-container">
+                <!-- Panel pricing cards -->
+                <div class="pricing-card animate-on-scroll" data-product="Panel RAM 1GB" data-price="1000">
+                    <div class="pricing-header">
+                        <h3>RAM 1GB</h3>
+                        <div class="price">Rp 1.000</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Server 24 Jam Online</li>
+                        <li>Anti Delete / Anti Rusuh</li>
+                        <li>Anti Maling Script</li>
+                        <li>Tidak Boros Kuota</li>
+                        <li>Anti DDOS Protection</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Panel RAM 1GB', 1000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Panel RAM 1GB', 1000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular animate-on-scroll" data-product="Panel RAM 5GB" data-price="5000">
+                    <div class="popular-badge">POPULER</div>
+                    <div class="pricing-header">
+                        <h3>RAM 5GB</h3>
+                        <div class="price">Rp 5.000</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Server 24 Jam Online</li>
+                        <li>Anti Delete / Anti Rusuh</li>
+                        <li>Anti Maling Script</li>
+                        <li>Tidak Boros Kuota</li>
+                        <li>Anti DDOS Protection</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Panel RAM 5GB', 5000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Panel RAM 5GB', 5000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="pricing-card animate-on-scroll" data-product="Panel Unlimited" data-price="12000">
+                    <div class="pricing-header">
+                        <h3>Unlimited</h3>
+                        <div class="price">Rp 12.000</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>RAM Unlimited</li>
+                        <li>Server 24 Jam Online</li>
+                        <li>Anti Delete / Anti Rusuh</li>
+                        <li>Anti Maling Script</li>
+                        <li>Tidak Boros Kuota</li>
+                        <li>Anti DDOS Protection</li>
+                        <li>Premium Support</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Panel Unlimited', 12000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Panel Unlimited', 12000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional panel options -->
+            <div class="services-grid" style="margin-top: 60px;">
+                <div class="service-card animate-on-scroll" data-product="Reseller Panel" data-price="15000">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Reseller Panel</h3>
+                    <p>Dapatkan keuntungan lebih dengan menjadi reseller panel kami. Harga khusus untuk reseller.</p>
+                    <div class="price">Rp 15.000</div>
+                    <ul class="service-features">
+                        <li>Harga Khusus Reseller</li>
+                        <li>Support Lengkap</li>
+                        <li>Dashboard Reseller</li>
+                        <li>Bisa Jual Kembali</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Reseller Panel', 15000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Reseller Panel', 15000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Panel RAM Lainnya" data-price="3000">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Panel RAM Lainnya</h3>
+                    <p>Panel dengan spesifikasi RAM lainnya sesuai kebutuhan Anda.</p>
+                    <ul class="service-features">
+                        <li>Panel Ram 2Gb : Rp 2.000</li>
+                        <li>Panel Ram 3Gb : Rp 3.000</li>
+                        <li>Panel Ram 4Gb : Rp 4.000</li>
+                        <li>Panel Ram 6Gb : Rp 6.000</li>
+                        <li>Panel Ram 7Gb : Rp 7.000</li>
+                        <li>Panel Ram 8Gb : Rp 8.000</li>
+                        <li>Panel Ram 9Gb : Rp 9.000</li>
+                        <li>Panel Ram 10Gb : Rp 10.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Panel RAM Lainnya', 3000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Panel RAM Lainnya', 3000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bot WhatsApp Section -->
+    <section id="bot" class="services-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>🤖 Bot WhatsApp</h2>
+                <p>Layanan sewa bot WhatsApp untuk berbagai keperluan dengan harga terjangkau dan fitur lengkap.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Bot cards -->
+                <div class="service-card animate-on-scroll" data-product="Bot Jaga Grup 1 Hari" data-price="2000">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Bot Jaga Grup</h3>
+                    <p>Bot untuk menjaga keamanan grup WhatsApp dari spammer, link berbahaya, dan anggota tidak diinginkan.</p>
+                    <ul class="service-features">
+                        <li>Sewa 1 Hari : Rp 2.000</li>
+                        <li>Sewa 3 Hari : Rp 5.000</li>
+                        <li>Sewa 7 Hari : Rp 10.000</li>
+                        <li>Sewa 15 Hari : Rp 15.000</li>
+                        <li>Sewa 1 Bulan : Rp 20.000</li>
+                        <li>Sewa Permanen : Rp 30.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Bot Jaga Grup 1 Hari', 2000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Bot Jaga Grup 1 Hari', 2000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Bot Pushkontak 3 Hari" data-price="5000">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Bot Pushkontak</h3>
+                    <p>Bot untuk mengirimkan kontak ke banyak pengguna secara otomatis dengan fitur target yang tepat.</p>
+                    <ul class="service-features">
+                        <li>Sewa 3 Hari : Rp 5.000</li>
+                        <li>Sewa 7 Hari : Rp 10.000</li>
+                        <li>Sewa 15 Hari : Rp 15.000</li>
+                        <li>Sewa 1 Bulan : Rp 20.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Bot Pushkontak 3 Hari', 5000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Bot Pushkontak 3 Hari', 5000)">
+                        <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Bot JPM 3 Hari" data-price="5000">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Bot JPM (Jasa Push Member)</h3>
+                    <p>Bot untuk menambah member grup secara otomatis dengan target yang dapat disesuaikan.</p>
+                    <ul class="service-features">
+                        <li>Sewa 3 Hari : Rp 5.000</li>
+                        <li>Sewa 7 Hari : Rp 10.000</li>
+                        <li>Sewa 15 Hari : Rp 15.000</li>
+                        <li>Sewa 1 Bulan : Rp 20.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Bot JPM 3 Hari', 5000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Bot JPM 3 Hari', 5000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Script JPM" data-price="10000">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Script Bot WhatsApp</h3>
+                    <p>Berbagai script bot WhatsApp siap pakai dengan fitur lengkap dan mudah diinstal.</p>
+                    <ul class="service-features">
+                        <li>SCRIPT JPM : Rp 10.000</li>
+                        <li>SCRIPT CPANEL : Rp 10.000</li>
+                        <li>SCRIPT JAGA GRUP : Rp 15.000</li>
+                        <li>SCRIPT PUSHKONTAK : Rp 15.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Script JPM', 10000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Script JPM', 10000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="NOKOS Indonesia +62" data-price="7000">
+                    <div class="service-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>NOKOS WhatsApp</h3>
+                    <p>Nomor kosong (NOKOS) WhatsApp berbagai negara untuk keperluan registrasi akun.</p>
+                    <ul class="service-features">
+                        <li>🇮🇩 +62 Indonesia: Rp 7.000</li>
+                        <li>🇻🇪 +58 Venezuela: Rp 10.000</li>
+                        <li>🇦🇫 +93 Afganistan: Rp 10.000</li>
+                        <li>🇵🇭 +63 Filipina: Rp 10.000</li>
+                        <li>🇮🇷 +98 Iran: Rp 10.000</li>
+                        <li>🇺🇸 +1 USA: Rp 25.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('NOKOS Indonesia +62', 7000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('NOKOS Indonesia +62', 7000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Jasa Install Panel" data-price="10000">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Jasa Lainnya</h3>
+                    <p>Berbagai jasa terkait bot WhatsApp dan panel untuk kebutuhan Anda.</p>
+                    <ul class="service-features">
+                        <li>Jasa Install Panel</li>
+                        <li>Jasa Setting CPanel</li>
+                        <li>Jasa Rename Script</li>
+                        <li>Jasa Run Bot</li>
+                        <li>Jasa Unban WA Spam/Permanen</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Jasa Install Panel', 10000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Jasa Install Panel', 10000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JPM Section -->
+    <section id="jpm" class="services-section">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>🛍️ Jasa Push Member (JPM)</h2>
+                <p>Tambah member grup WhatsApp Anda dengan layanan JPM reguler dan premium.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- JPM cards -->
+                <div class="service-card animate-on-scroll" data-product="JPM Reguler 20 Member" data-price="5000">
+                    <div class="service-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>JPM Reguler</h3>
+                    <p>Layanan push member reguler dengan hasil yang terjamin dan proses cepat.</p>
+                    <ul class="service-features">
+                        <li>20 Member : Rp 5.000</li>
+                        <li>45 Member : Rp 10.000</li>
+                        <li>75 Member : Rp 25.000</li>
+                        <li>100 Member : Rp 35.000</li>
+                        <li>Full 1024 Member : Rp 200.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('JPM Reguler 20 Member', 5000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('JPM Reguler 20 Member', 5000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="JPM Premium 15 Member" data-price="5000">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>JPM Premium</h3>
+                    <p>Layanan push member premium dengan kualitas member lebih baik dan hasil maksimal.</p>
+                    <ul class="service-features">
+                        <li>15 Member : Rp 5.000</li>
+                        <li>25 Member : Rp 10.000</li>
+                        <li>45 Member : Rp 20.000</li>
+                        <li>75 Member : Rp 35.000</li>
+                        <li>100 Member : Rp 45.000</li>
+                        <li>Full 1024 Member : Rp 250.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('JPM Premium 15 Member', 5000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('JPM Premium 15 Member', 5000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sosial Media Section -->
+    <section id="sosmed" class="services-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>💫 Jasa Suntik Sosial Media</h2>
+                <p>Tingkatkan engagement akun sosial media Anda dengan layanan like, views, dan followers berkualitas.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Sosmed cards -->
+                <div class="service-card animate-on-scroll" data-product="TikTok 1000 Like" data-price="2000">
+                    <div class="service-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok Services</h3>
+                    <p>Like, views, dan followers TikTok permanen untuk meningkatkan popularitas akun Anda.</p>
+                    <ul class="service-features">
+                        <li>1000 Like : Rp 2.000</li>
+                        <li>10.000 Views : Rp 4.000</li>
+                        <li>100 Followers : Rp 4.000</li>
+                        <li>1000 Followers : Rp 25.000</li>
+                        <li>100.000 Views : Rp 24.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('TikTok 1000 Like', 2000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('TikTok 1000 Like', 2000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="Instagram 400 Like" data-price="8000">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram Services</h3>
+                    <p>Like, views, dan followers Instagram untuk meningkatkan engagement dan reach akun Anda.</p>
+                    <ul class="service-features">
+                        <li>400 Like : Rp 8.000</li>
+                        <li>1000 Like : Rp 15.000</li>
+                        <li>100 Followers : Rp 8.000</li>
+                        <li>1000 Followers : Rp 60.000</li>
+                        <li>50.000 Views : Rp 10.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('Instagram 400 Like', 8000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('Instagram 400 Like', 8000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="service-card animate-on-scroll" data-product="WhatsApp Channel 100 Followers" data-price="8000">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Saluran WhatsApp</h3>
+                    <p>Tambah followers saluran WhatsApp channel Anda dengan cepat dan aman.</p>
+                    <ul class="service-features">
+                        <li>100 Followers : Rp 8.000</li>
+                        <li>300 Followers : Rp 17.000</li>
+                        <li>500 Followers : Rp 25.000</li>
+                        <li>1000 Followers : Rp 40.000</li>
+                    </ul>
+                    <div class="service-actions">
+                        <a href="javascript:void(0)" class="btn-buy" onclick="buyProduct('WhatsApp Channel 100 Followers', 8000)">Beli Sekarang</a>
+                        <button class="btn-cart" onclick="addToCart('WhatsApp Channel 100 Followers', 8000)">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Panel -->
+    <section id="admin">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>👑 Admin & Support</h2>
+                <p>Tim admin dan support siap membantu Anda 24/7 untuk semua kebutuhan layanan.</p>
+            </div>
+            
+            <div class="admin-panel animate-on-scroll">
+                <div class="admin-header">
+                    <h3><i class="fas fa-user-tie"></i> Admin Habibi Store</h3>
+                    <div class="admin-status">
+                        <i class="fas fa-circle" style="color: #2ecc71; font-size: 0.8rem;"></i> Online 24/7
+                    </div>
+                </div>
+                
+                <div class="admin-content">
+                    <div class="admin-card">
+                        <h4><i class="fas fa-headset"></i> Customer Support</h4>
+                        <p>Tim support kami siap membantu Anda dalam proses order, konfirmasi pembayaran, dan troubleshooting.</p>
+                        <div class="admin-contact">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <a href="https://wa.me/6285169017751">0851-6901-7751</a><br>
+                                <a href="https://wa.me/628131919213">0813-1919-213</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h4><i class="fas fa-tools"></i> Technical Support</h4>
+                        <p>Tim teknis kami membantu instalasi panel, setting bot, dan troubleshooting teknis lainnya.</p>
+                        <div class="admin-contact">
+                            <i class="fab fa-telegram"></i>
+                            <div>
+                                <a href="https://t.me/habibihosting10">Telegram: @habibihosting10</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h4><i class="fas fa-comments"></i> Grup Komunitas</h4>
+                        <p>Bergabunglah dengan grup komunitas untuk berbagi pengalaman dan mendapatkan info terbaru.</p>
+                        <div class="admin-contact">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <a href="https://chat.whatsapp.com/K8NvvP0s4LP4oTKvmWwzUV">Grup JB Utama</a><br>
+                                <a href="https://chat.whatsapp.com/BrS9ir3Ck6oDTK1RA0iGJp">Grup Hosting</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-card">
+                        <h4><i class="fas fa-star"></i> Testimoni & Review</h4>
+                        <p>Lihat testimoni dari pelanggan kami yang sudah menggunakan layanan Habibi Store.</p>
+                        <div class="admin-contact">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <a href="https://whatsapp.com/channel/0029Vb6SDXJDDmFXx0cHwF3f">Saluran Testimoni</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title animate-on-scroll">
+                <h2>📞 Hubungi Kami</h2>
+                <p>Pesan layanan sekarang melalui kontak di bawah ini atau kunjungi grup WhatsApp kami.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telepon / WhatsApp</h4>
+                            <a href="https://wa.me/6285169017751">0851-6901-7751 (Owner 1)</a><br>
+                            <a href="https://wa.me/628131919213">0813-1919-213 (Owner 2)</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telegram</h4>
+                            <a href="https://t.me/habibihosting10">t.me/habibihosting10</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Grup WhatsApp</h4>
+                            <a href="https://chat.whatsapp.com/K8NvvP0s4LP4oTKvmWwzUV">Grup JB Utama</a><br>
+                            <a href="https://chat.whatsapp.com/BrS9ir3Ck6oDTK1RA0iGJp">Grup Hosting</a>
+                        </div>
+                        </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Testimoni</h4>
+                            <a href="https://whatsapp.com/channel/0029Vb6SDXJDDmFXx0cHwF3f">Saluran Testimoni</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate-on-scroll">
+                    <div class="service-card" style="height: 100%;">
+                        <div class="service-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h3>Layanan Lainnya</h3>
+                        <p>Kami juga menyediakan berbagai layanan digital lainnya:</p>
+                        <ul class="service-features">
+                            <li>VPS Digital Ocean</li>
+                            <li>Jasa Install Panel</li>
+                            <li>Jasa Setting CPanel</li>
+                            <li>Jasa Rename Script</li>
+                            <li>Jasa Bikin Website Payment</li>
+                            <li>Jasa Unban WA Spam / Permanen</li>
+                            <li>Jasa Run Bot</li>
+                            <li>All Aplikasi Premium</li>
+                            <li>Jasa Up Dana Premium</li>
+                        </ul>
+                        <a href="https://wa.me/6285169017751" class="btn-buy" style="width: 100%; text-align: center;">Tanya Layanan Lain</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Habibi Store</h3>
+                    <p>Penyedia layanan panel WhatsApp, bot WhatsApp, script, dan jasa sosial media terlengkap dengan harga terjangkau dan kualitas terbaik.</p>
+                    <div class="social-links">
+                        <a href="https://wa.me/6285169017751"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/habibihosting10"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#panel">Panel WhatsApp</a></li>
+                        <li><a href="#bot">Bot WhatsApp</a></li>
+                        <li><a href="#sosmed">Jasa Sosial Media</a></li>
+                        <li><a href="#jpm">Jasa Push Member</a></li>
+                        <li><a href="#bot">Script Bot</a></li>
+                        <li><a href="#bot">NOKOS WhatsApp</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#categories">Kategori</a></li>
+                        <li><a href="#panel">Harga Panel</a></li>
+                        <li><a href="#bot">Sewa Bot</a></li>
+                        <li><a href="#admin">Admin</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Informasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#admin">Syarat & Ketentuan</a></li>
+                        <li><a href="#admin">Kebijakan Privasi</a></li>
+                        <li><a href="#admin">Cara Order</a></li>
+                        <li><a href="#admin">Pembayaran</a></li>
+                        <li><a href="#admin">Testimoni</a></li>
+                        <li><a href="#admin">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> HABIBI HOSTING STORE. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <a href="https://wa.me/6285169017751" class="floating-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper for Hero Slider
+        const heroSwiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+
+        // Initialize Swiper for Category Slider
+        const categorySwiper = new Swiper('.categorySwiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            speed: 800,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: '.category-next',
+                prevEl: '.category-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 4,
+                },
+                1200: {
+                    slidesPerView: 5,
+                },
+            },
+        });
+
+        // Cart System
+        let cart = JSON.parse(localStorage.getItem('habibiCart')) || [];
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCount = document.querySelector('.cart-count');
+        const cartModal = document.getElementById('cartModal');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const clearCart = document.getElementById('clearCart');
+        const checkoutCart = document.getElementById('checkoutCart');
+
+        // Update cart count
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = count;
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart" style="text-align: center; padding: 40px 20px; color: #999;">
+                        <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                        <h4>Keranjang belanja kosong</h4>
+                        <p>Tambahkan layanan ke keranjang untuk memulai</p>
+                    </div>
+                `;
+                cartTotal.textContent = 'Rp 0';
+            } else {
+                cartItems.innerHTML = cart.map((item, index) => `
+                    <div class="cart-item">
+                        <img src="https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <div class="cart-item-title">${item.name}</div>
+                            <div class="cart-item-price">Rp ${item.price.toLocaleString()}</div>
+                        </div>
+                        <button class="cart-item-remove" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                cartTotal.textContent = `Rp ${total.toLocaleString()}`;
+            }
+            
+            updateCartCount();
+            localStorage.setItem('habibiCart', JSON.stringify(cart));
+        }
+
+        // Add to cart
+        function addToCart(productName, productPrice) {
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                    });
+            }
+            
+            updateCartDisplay();
+            
+            // Show notification
+            showNotification(`${productName} ditambahkan ke keranjang!`);
+        }
+
+        // Remove from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        // Clear cart
+        clearCart.addEventListener('click', () => {
+            if (cart.length > 0) {
+                if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
+                    cart = [];
+                    updateCartDisplay();
+                    showNotification('Keranjang berhasil dikosongkan!');
+                }
+            }
+        });
+
+        // Checkout cart
+        checkoutCart.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Keranjang belanja kosong!');
+                return;
+            }
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemsText = cart.map(item => `• ${item.name} (${item.quantity}x) - Rp ${item.price.toLocaleString()}`).join('%0A');
+            
+            const message = `Halo Admin Habibi Store,%0A%0ASaya ingin memesan:%0A%0A${itemsText}%0A%0ATotal: Rp ${total.toLocaleString()}%0A%0ATerima kasih!`;
+            
+            window.open(`https://wa.me/6285169017751?text=${message}`, '_blank');
+        });
+
+        // Buy product directly
+        function buyProduct(productName, productPrice) {
+            const message = `Halo Admin Habibi Store,%0A%0ASaya ingin memesan:%0A%0A• ${productName} - Rp ${productPrice.toLocaleString()}%0A%0ATerima kasih!`;
+            window.open(`https://wa.me/6285169017751?text=${message}`, '_blank');
+        }
+
+        // Cart modal toggle
+        cartIcon.addEventListener('click', () => {
+            cartModal.classList.add('active');
+            cartOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        cartOverlay.addEventListener('click', () => {
+            cartModal.classList.remove('active');
+            cartOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Sales modal
+        const salesIcon = document.getElementById('salesIcon');
+        const salesModal = document.getElementById('salesModal');
+        const salesOverlay = document.getElementById('salesOverlay');
+        const closeSales = document.getElementById('closeSales');
+        const salesTabs = document.querySelectorAll('.sales-tab');
+        const tabContents = document.querySelectorAll('.sales-tab-content');
+
+        salesIcon.addEventListener('click', () => {
+            salesModal.classList.add('active');
+            salesOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeSales.addEventListener('click', () => {
+            salesModal.classList.remove('active');
+            salesOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        salesOverlay.addEventListener('click', () => {
+            salesModal.classList.remove('active');
+            salesOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Sales tabs functionality
+        salesTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Update active tab
+                salesTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show active tab content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `${tabId}Tab`) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Current Year for Copyright
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Search Functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const resultsGrid = document.getElementById('resultsGrid');
+        const resultCount = document.getElementById('resultCount');
+        const clearSearch = document.getElementById('clearSearch');
+        
+        // All services data for search
+        const servicesData = [
+            { 
+                title: "Panel RAM 1GB", 
+                description: "Panel hosting bot WhatsApp dengan RAM 1GB", 
+                price: "Rp 1.000",
+                category: "panel",
+                searchTerms: "panel ram 1gb hosting bot whatsapp"
+            },
+            { 
+                title: "Panel RAM 2GB", 
+                description: "Panel hosting bot WhatsApp dengan RAM 2GB", 
+                price: "Rp 2.000",
+                category: "panel",
+                searchTerms: "panel ram 2gb"
+            },
+            { 
+                title: "Panel RAM 5GB", 
+                description: "Panel hosting bot WhatsApp dengan RAM 5GB", 
+                price: "Rp 5.000",
+                category: "panel",
+                searchTerms: "panel ram 5gb"
+            },
+            { 
+                title: "Panel Unlimited", 
+                description: "Panel hosting bot WhatsApp dengan RAM Unlimited", 
+                price: "Rp 12.000",
+                category: "panel",
+                searchTerms: "panel unlimited ram"
+            },
+            { 
+                title: "Reseller Panel", 
+                description: "Harga khusus untuk reseller panel", 
+                price: "Rp 15.000",
+                category: "panel",
+                searchTerms: "reseller panel"
+            },
+            { 
+                title: "Bot Jaga Grup 1 Hari", 
+                description: "Sewa bot jaga grup WhatsApp untuk 1 hari", 
+                price: "Rp 2.000",
+                category: "bot",
+                searchTerms: "bot jaga grup sewa 1 hari"
+            },
+            { 
+                title: "Bot Jaga Grup 1 Bulan", 
+                description: "Sewa bot jaga grup WhatsApp untuk 1 bulan", 
+                price: "Rp 20.000",
+                category: "bot",
+                searchTerms: "bot jaga grup sewa 1 bulan"
+            },
+            { 
+                title: "Bot Jaga Grup Permanen", 
+                description: "Sewa bot jaga grup WhatsApp permanen", 
+                price: "Rp 30.000",
+                category: "bot",
+                searchTerms: "bot jaga grup permanen"
+            },
+            { 
+                title: "Bot Pushkontak 7 Hari", 
+                description: "Sewa bot pushkontak WhatsApp untuk 7 hari", 
+                price: "Rp 10.000",
+                category: "bot",
+                searchTerms: "bot pushkontak sewa 7 hari"
+            },
+            { 
+                title: "Bot JPM 7 Hari", 
+                description: "Sewa bot JPM (Jasa Push Member) untuk 7 hari", 
+                price: "Rp 10.000",
+                category: "bot",
+                searchTerms: "bot jpm sewa 7 hari"
+            },
+            { 
+                title: "Script JPM", 
+                description: "Script bot WhatsApp untuk Jasa Push Member", 
+                price: "Rp 10.000",
+                category: "script",
+                searchTerms: "script jpm bot whatsapp"
+            },
+            { 
+                title: "Script Jaga Grup", 
+                description: "Script bot WhatsApp untuk jaga grup", 
+                price: "Rp 15.000",
+                category: "script",
+                searchTerms: "script jaga grup bot whatsapp"
+            },
+            { 
+                title: "NOKOS Indonesia", 
+                description: "Nomor kosong WhatsApp Indonesia +62", 
+                price: "Rp 7.000",
+                category: "nokos",
+                searchTerms: "nokos indonesia nomor whatsapp"
+            },
+            { 
+                title: "NOKOS USA", 
+                description: "Nomor kosong WhatsApp USA +1", 
+                price: "Rp 25.000",
+                category: "nokos",
+                searchTerms: "nokos usa amerika nomor whatsapp"
+            },
+            { 
+                title: "JPM Reguler 20 Member", 
+                description: "Jasa Push Member reguler untuk 20 member", 
+                price: "Rp 5.000",
+                category: "jpm",
+                searchTerms: "jpm reguler 20 member push"
+            },
+            { 
+                title: "JPM Premium 100 Member", 
+                description: "Jasa Push Member premium untuk 100 member", 
+                price: "Rp 45.000",
+                category: "jpm",
+                searchTerms: "jpm premium 100 member push"
+            },
+            { 
+                title: "TikTok 1000 Like", 
+                description: "1000 like TikTok permanen", 
+                price: "Rp 2.000",
+                category: "sosmed",
+                searchTerms: "tiktok like 1000"
+            },
+            { 
+                title: "TikTok 10.000 Views", 
+                description: "10.000 views TikTok permanen", 
+                price: "Rp 4.000",
+                category: "sosmed",
+                searchTerms: "tiktok views 10000"
+            },
+            { 
+                title: "TikTok 100 Followers", 
+                description: "100 followers TikTok permanen", 
+                price: "Rp 4.000",
+                category: "sosmed",
+                searchTerms: "tiktok followers 100"
+            },
+            { 
+                title: "Instagram 400 Like", 
+                description: "400 like Instagram", 
+                price: "Rp 8.000",
+                category: "sosmed",
+                searchTerms: "instagram like 400"
+            },
+            { 
+                title: "Instagram 1000 Followers", 
+                description: "1000 followers Instagram", 
+                price: "Rp 60.000",
+                category: "sosmed",
+                searchTerms: "instagram followers 1000"
+            },
+            { 
+                title: "WhatsApp Channel 100 Followers", 
+                description: "100 followers WhatsApp Channel", 
+                price: "Rp 8.000",
+                category: "sosmed",
+                searchTerms: "whatsapp channel followers 100"
+            },
+            { 
+                title: "Jasa Install Panel", 
+                description: "Jasa install panel bot WhatsApp", 
+                price: "Hubungi Admin",
+                category: "jasa",
+                searchTerms: "jasa install panel setting"
+            },
+            { 
+                title: "Jasa Setting CPanel", 
+                description: "Jasa setting cPanel untuk hosting", 
+                price: "Hubungi Admin",
+                category: "jasa",
+                searchTerms: "jasa setting cpanel hosting"
+            },
+            { 
+                title: "VPS Digital Ocean", 
+                description: "VPS hosting dari Digital Ocean", 
+                price: "Hubungi Admin",
+                category: "jasa",
+                searchTerms: "vps digital ocean hosting"
+                }
+        ];
+        
+        // Search function
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                searchResults.classList.remove('active');
+                return;
+            }
+            
+            // Filter services based on search term
+            const filteredServices = servicesData.filter(service => {
+                return service.title.toLowerCase().includes(searchTerm) ||
+                       service.description.toLowerCase().includes(searchTerm) ||
+                       service.searchTerms.toLowerCase().includes(searchTerm) ||
+                       service.category.toLowerCase().includes(searchTerm);
+            });
+            
+            // Display results
+            displaySearchResults(filteredServices, searchTerm);
+        }
+        
+        // Display search results
+        function displaySearchResults(results, searchTerm) {
+            if (results.length === 0) {
+                resultsGrid.innerHTML = `
+                    <div class="result-item" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                        <h4>Tidak ditemukan hasil untuk "${searchTerm}"</h4>
+                        <p>Coba dengan kata kunci lain seperti: panel, bot, jpm, tiktok, instagram</p>
+                    </div>
+                `;
+                resultCount.textContent = "0";
+            } else {
+                resultsGrid.innerHTML = '';
+                results.forEach(service => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+                    resultItem.innerHTML = `
+                        <h4>${service.title}</h4>
+                        <p>${service.description}</p>
+                        <div class="result-price">${service.price}</div>
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <a href="javascript:void(0)" class="btn-buy" style="padding: 8px 15px; font-size: 0.9rem;" onclick="buyProduct('${service.title}', ${parseInt(service.price.replace('Rp ', '').replace('.', ''))})">Beli</a>
+                            <button class="btn-cart" onclick="addToCart('${service.title}', ${parseInt(service.price.replace('Rp ', '').replace('.', ''))})">
+                                <i class="fas fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    `;
+                    resultsGrid.appendChild(resultItem);
+                });
+                resultCount.textContent = results.length;
+            }
+            
+            searchResults.classList.add('active');
+            
+            // Scroll to search results
+            searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Event listeners for search
+        searchInput.addEventListener('input', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Clear search
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            searchInput.focus();
+        });
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Show notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--secondary);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                z-index: 9999;
+                font-weight: 500;
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(120%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.overflow = 'auto';
+            const loader = document.createElement('div');
+            loader.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--dark);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease;
+            `;
+            
+            loader.innerHTML = `
+                <div class="logo" style="font-size: 3rem;">
+                    <i class="fas fa-store"></i>
+                    HABIBI<span style="color: #1abc9c;">STORE</span>
+                </div>
+            `;
+            
+            document.body.appendChild(loader);
+            
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(loader);
+                }, 500);
+            }, 1500);
+            
+            // Initialize cart display
+            updateCartDisplay();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
